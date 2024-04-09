@@ -46,7 +46,7 @@ info = """
 """
 
 # variables
-orbit_radius = 10
+orbit_radius = 20
 orbit_speed = -0.05
 angle = 5
 
@@ -108,15 +108,15 @@ def quit_message():
 		destroy(yes_answer)
 		destroy(no_answer)
 
-	# question
-	question = Button(parent=camera.ui, text=f"Quit {__name__}?", scale=(.5, .2), position=(0, .05), color=BACKGROUND)
+	# quit question
+	question = Button(parent=camera.ui, text=f"Quit {__name__}?", scale=(.5, .2), position=(0, .02), color=BACKGROUND)
 
 	# answer positive
-	yes_answer = Button(parent=camera.ui, text="Yes", scale=(.15, .055), position=(-.1, -.05, 0), color=RED, collider="mesh")
+	yes_answer = Button(parent=camera.ui, text="Yes", scale=(.15, .055), position=(-.1, -.08, 0), color=RED, collider="mesh")
 	yes_answer.on_click = application.quit
 
 	# answer negative
-	no_answer = Button(parent=camera.ui, text="No", scale=(.15, .055), position=(.1, -.05, 0), color=GREEN, collider="mesh")
+	no_answer = Button(parent=camera.ui, text="No", scale=(.15, .055), position=(.1, -.08, 0), color=GREEN, collider="mesh")
 	no_answer.on_click = abort_quit
 
 # input function
@@ -150,54 +150,54 @@ def update():
 	mercury.z = orbit_radius * math.sin(angle)
 
 	# circular movement for venus
-	venus.x = 20 * math.cos(angle)
-	venus.z = 20 * math.sin(angle)
+	venus.x = 40 * math.cos(angle)
+	venus.z = 40 * math.sin(angle)
 
 	# circular movement for earth
-	earth.x = 30 * math.cos(angle)
-	earth.z = 30 * math.sin(angle)
+	earth.x = 60 * math.cos(angle)
+	earth.z = 60 * math.sin(angle)
 
 	# circular movement for earth moon
-	earth_moon.x = 32 * math.cos(angle)
-	earth_moon.z = 32 * math.sin(angle)
+	earth_moon.x = 62 * math.cos(angle)
+	earth_moon.z = 62 * math.sin(angle)
 
 	# circular movement for mars
-	mars.x = 40 * math.cos(angle)
-	mars.z = 40 * math.sin(angle)
+	mars.x = 80 * math.cos(angle)
+	mars.z = 80 * math.sin(angle)
 
 	# circular movement for jupiter
-	jupiter.x = 50 * math.cos(angle)
-	jupiter.z = 50 * math.sin(angle)
+	jupiter.x = 100 * math.cos(angle)
+	jupiter.z = 100 * math.sin(angle)
 
 	# circular movement for saturn and saturn ring
-	saturn.x = 60 * math.cos(angle)
-	saturn.z = 60 * math.sin(angle)
-	saturn_ring.x = 60 * math.cos(angle)
-	saturn_ring.z = 60 * math.sin(angle)
+	saturn.x = 120 * math.cos(angle)
+	saturn.z = 120 * math.sin(angle)
+	saturn_ring.x = 120 * math.cos(angle)
+	saturn_ring.z = 120 * math.sin(angle)
 
 	# circular movement for uranus
-	uranus.x = 70 * math.cos(angle)
-	uranus.z = 70 * math.sin(angle)
+	uranus.x = 140 * math.cos(angle)
+	uranus.z = 140 * math.sin(angle)
 
 	# circular movement for neptune
-	neptune.x = 80 * math.cos(angle)
-	neptune.z = 80 * math.sin(angle)
+	neptune.x = 160 * math.cos(angle)
+	neptune.z = 160 * math.sin(angle)
 
 	# angle changing
 	angle += orbit_speed * time.dt
 
 	# rotating animation
-	sun.rotation_y += 0.1
-	mercury.rotation_x += 0.1
-	venus.rotation_z += 0.2
-	earth.rotation_x -= 0.2
-	earth_moon.rotation_y -= 0.1
-	mars.rotation_z -= 0.2
-	jupiter.rotation_x += 0.1
-	saturn.rotation_y += 0.1
-	saturn_ring.rotation_y += 0.1
-	uranus.rotation_x -= 0.3
-	neptune.rotation_y -= 0.3
+	sun.rotation_y += 0.2
+	mercury.rotation_y += 0.2
+	venus.rotation_y += 0.2
+	earth.rotation_y += 0.2
+	earth_moon.rotation_y += 0.2
+	mars.rotation_y += 0.2
+	jupiter.rotation_y += 0.2
+	saturn.rotation_y += 0.2
+	saturn_ring.rotation_y += 0.2
+	uranus.rotation_y += 0.2
+	neptune.rotation_y += 0.2
 
 # help message at the start
 help_message()
@@ -219,34 +219,34 @@ sun = Button(parent=scene, model="sphere", texture="textures/8k_sun", color=WHIT
 sun.on_click = info_message
 
 # creating mercury
-mercury = Button(parent=scene, model="sphere", texture="textures/8k_mercury", color=WHITE, scale=0.488, collider="mesh")
+mercury = Button(parent=scene, model="sphere", texture="textures/8k_mercury", color=WHITE, scale=0.0488, collider="mesh")
 
 # creating venus
-venus = Button(parent=scene, model="sphere", texture="textures/8k_venus_surface", scale=1.210, color=WHITE, collider="mesh")
+venus = Button(parent=scene, model="sphere", texture="textures/8k_venus_surface", scale=0.1210, color=WHITE, collider="mesh")
 
 # creating earth
-earth = Button(parent=scene, model="sphere", texture="textures/8k_earth_daymap", color=WHITE, scale=1.274, collider="mesh")
+earth = Button(parent=scene, model="sphere", texture="textures/8k_earth_daymap", color=WHITE, scale=0.1274, collider="mesh")
 
 # creating earth moon
-earth_moon = Button(parent=scene, model="sphere", texture="textures/8k_moon", color=WHITE, scale=0.347, collider="mesh")
+earth_moon = Button(parent=scene, model="sphere", texture="textures/8k_moon", color=WHITE, scale=0.034, collider="mesh")
 
 # creating mars
-mars = Button(parent=scene, model="sphere", texture="textures/8k_mars", color=WHITE, scale=0.677, collider="mesh")
+mars = Button(parent=scene, model="sphere", texture="textures/8k_mars", color=WHITE, scale=0.067, collider="mesh")
 
 # creating jupiter
-jupiter = Button(parent=scene, model="sphere", texture="textures/8k_jupiter", color=WHITE, scale=1.398, collider="mesh")
+jupiter = Button(parent=scene, model="sphere", texture="textures/8k_jupiter", color=WHITE, scale=1.3982, collider="mesh")
 
 # creating saturn
-saturn = Button(parent=scene, model="sphere", texture="textures/8k_saturn", color=WHITE, scale=1.164, collider="mesh")
+saturn = Button(parent=scene, model="sphere", texture="textures/8k_saturn", color=WHITE, scale=1.2536, collider="mesh")
 
 # creating saturn ring
-saturn_ring = Button(parent=scene, model="sphere", texture="textures/8k_saturn_ring_alpha", color=WHITE, scale=(2.820, 0.005, 2.820), rotation=(0, 0, 15), collider="mesh")
+saturn_ring = Button(parent=scene, model="sphere", texture="textures/8k_saturn_ring_alpha", color=WHITE, scale=(2.400, 0.005, 2.400), rotation=(0, 0, 0), collider="mesh")
 
 # creating uranus
-uranus = Button(parent=scene, model="sphere", texture="textures/2k_uranus", color=WHITE, scale=0.507, collider="mesh")
+uranus = Button(parent=scene, model="sphere", texture="textures/2k_uranus", color=WHITE, scale=0.5072, collider="mesh")
 
 # creating neptune
-neptune = Button(parent=scene, model="sphere", texture="textures/2k_neptune", color=WHITE, scale=0.492, collider="mesh")
+neptune = Button(parent=scene, model="sphere", texture="textures/2k_neptune", color=WHITE, scale=0.4924, collider="mesh")
 
 # running the app
 app.run()
